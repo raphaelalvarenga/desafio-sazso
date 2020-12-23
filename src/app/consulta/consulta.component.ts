@@ -34,12 +34,14 @@ export class ConsultaComponent implements OnInit {
     this.cleanTable();
     this.isLoading = true;
 
+    this.inputForm.setValue((this.inputForm.value as string).toLowerCase())
+
     this.vehicleService
       .getVehicle(this.inputForm.value)
       .subscribe(
         success => {
           const { msg, plate, chassis, brand, model, color, yearManufactur, yearModel } = success.data as Vehicle;
-          this.vehicle = new Vehicle(msg, plate, chassis, brand, model, color, yearManufactur, yearModel);
+          this.vehicle = new Vehicle(msg === null ? '-' : msg, plate, chassis, brand, model, color, yearManufactur, yearModel);
           this.tableData.push(this.vehicle);
           this.isLoading = false;
         },
@@ -59,6 +61,10 @@ export class ConsultaComponent implements OnInit {
 
   cleanTable() {
     this.tableData = [];
+  }
+
+  cleanInput() {
+    this.inputForm.setValue('');
   }
 
 }
