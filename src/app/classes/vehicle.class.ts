@@ -8,6 +8,26 @@ export class Vehicle {
     private _yearManufactur: number;
     private _yearModel: number;
 
+    constructor(
+        msg: string,
+        plate: string,
+        chassis: string,
+        brand: string,
+        model: string,
+        color: string,
+        yearManufactur: number,
+        yearModel: number
+    ) {
+        this._msg = msg;
+        this._plate = plate;
+        this._chassis = chassis;
+        this._brand = brand;
+        this._model = model;
+        this._color = color;
+        this._yearManufactur = yearManufactur;
+        this._yearModel = yearModel;
+    }
+
     get msg() {
         return this._msg;
     }

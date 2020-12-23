@@ -10,6 +10,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+
 
 import { ConsultaComponent } from './consulta/consulta.component';
 
@@ -26,7 +29,9 @@ import { ConsultaComponent } from './consulta/consulta.component';
     MatButtonModule,
     MatInputModule,
     FlexLayoutModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

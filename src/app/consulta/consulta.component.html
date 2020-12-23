@@ -1,18 +1,103 @@
-<div fxLayoutAlign = "center">
-    <mat-form-field style="width: 320px; font-size: 18px; text-align: center;">
-        <mat-label>Insert a plate sequence</mat-label>
-        <input matInput type="text" [formControl] = "inputForm">
-    </mat-form-field>
-</div>
-
-<div fxLayout fxLayoutAlign = "center" fxLayoutGap = "20px">
-    <div>
-        <button mat-raised-button color = "primary">Search</button>
+<div class = "div-input">
+    <div fxLayoutAlign = "center">
+        <mat-form-field class="mat-form-field">
+            <mat-label>Insert a plate sequence</mat-label>
+            <input matInput type="text" [formControl] = "inputForm">
+        </mat-form-field>
     </div>
 
-    <div>
-        <button mat-button color = "warn">Clear</button>
+    <div fxLayout fxLayoutAlign = "center" fxLayoutGap = "20px">
+        <div>
+            <button mat-raised-button color = "primary">Search</button>
+        </div>
+
+        <div>
+            <button mat-button color = "warn">Clear</button>
+        </div>
     </div>
 </div>
 
-<mat-divider></mat-divider>
+<div class = "div-mat-divider">
+    <mat-divider></mat-divider>
+</div>
+
+<table mat-table [dataSource] = "tableData" *ngIf = "screenWidth > 900; else listData">
+    <ng-container matColumnDef = "plate">
+        <th mat-header-cell *matHeaderCellDef>Plate</th>
+        <td mat-cell *matCellDef = "let element">{{ element.plate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef = "brand">
+        <th mat-header-cell *matHeaderCellDef>Brand</th>
+        <td mat-cell *matCellDef = "let element">{{ element.brand }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "model">
+        <th mat-header-cell *matHeaderCellDef>Model</th>
+        <td mat-cell *matCellDef = "let element">{{ element.model }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "color">
+        <th mat-header-cell *matHeaderCellDef>Color</th>
+        <td mat-cell *matCellDef = "let element">{{ element.color }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "chassis">
+        <th mat-header-cell *matHeaderCellDef>Chassis</th>
+        <td mat-cell *matCellDef = "let element">{{ element.chassis }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "yearManufactur">
+        <th mat-header-cell *matHeaderCellDef>Year of Manufacturing</th>
+        <td mat-cell *matCellDef = "let element">{{ element.yearManufactur }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "yearModel">
+        <th mat-header-cell *matHeaderCellDef>Year of Model</th>
+        <td mat-cell *matCellDef = "let element">{{ element.yearModel }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef = "msg">
+        <th mat-header-cell *matHeaderCellDef>Msg</th>
+        <td mat-cell *matCellDef = "let element">{{ element.msg }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<ng-template #listData>
+    <mat-list role = "list">
+        <mat-list-item role = "listitem">
+            <strong>Plate:</strong> &nbsp; {{ tableData[0].plate }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Brand:</strong> &nbsp; {{ tableData[0].brand }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Model:</strong> &nbsp; {{ tableData[0].model }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Color:</strong> &nbsp; {{ tableData[0].color }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Chassis:</strong> &nbsp; {{ tableData[0].chassis }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Year of Manufacturing:</strong> &nbsp; {{ tableData[0].yearManufactur }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Year of Model:</strong> &nbsp; {{ tableData[0].yearModel }}
+        </mat-list-item>
+        
+        <mat-list-item role = "listitem">
+            <strong>Msg:</strong> &nbsp; {{ tableData[0].msg }}
+        </mat-list-item>
+    </mat-list>
+</ng-template>

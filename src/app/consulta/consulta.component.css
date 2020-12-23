@@ -1,0 +1,14 @@
+.div-input {
+    margin-bottom: 50px;
+}
+
+mat-form-field {
+    width: 320px;
+    font-size: 18px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
