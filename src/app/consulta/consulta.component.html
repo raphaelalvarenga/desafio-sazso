@@ -1,0 +1,18 @@
+<div fxLayoutAlign = "center">
+    <mat-form-field style="width: 320px; font-size: 18px; text-align: center;">
+        <mat-label>Insert a plate sequence</mat-label>
+        <input matInput type="text" [formControl] = "inputForm">
+    </mat-form-field>
+</div>
+
+<div fxLayout fxLayoutAlign = "center" fxLayoutGap = "20px">
+    <div>
+        <button mat-raised-button color = "primary">Search</button>
+    </div>
+
+    <div>
+        <button mat-button color = "warn">Clear</button>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
