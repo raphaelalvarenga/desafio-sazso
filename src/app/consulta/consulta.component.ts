@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '@app/classes';
 import { FormControl, Validators } from '@angular/forms';
 import { VehicleService } from '@app/services/vehicle.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '@app/global-components/dialog/dialog.component';
 
 @Component({
   selector: 'app-consulta',
@@ -14,31 +16,13 @@ export class ConsultaComponent implements OnInit {
   tableData: Array<Vehicle> = [];
   inputForm = new FormControl('', Validators.required);
   screenWidth: number;
+  isLoading = false;
 
   displayedColumns: string[] = ['plate', 'brand', 'model', 'color', 'chassis', 'yearManufactur', 'yearModel', 'msg'];
 
-  constructor(private vehicleService: VehicleService) { }
+  constructor(private vehicleService: VehicleService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toLowerCase();
-    const plate = [];
-
-    for (let x = 0; x < 3; x++) {
-      const randomNumber = Math.floor(Math.random() * letters.length);
-      const randomLetter = letters[randomNumber];
-      plate.push(randomLetter);
-    }
-
-    for (let x = 0; x < 4; x++) {
-      const randomNumber = Math.floor(Math.random() * 10);
-      plate.push(randomNumber);
-    }
-
-    this.inputForm.setValue(plate.join(''));
-    this.inputForm.setValue('wpn8077');
-
-    const randomNumber = Math.ceil(Math.random() * letters.length);
-
     this.screenWidth = window.innerWidth;
   }
 
@@ -47,6 +31,9 @@ export class ConsultaComponent implements OnInit {
       return false;
     }
 
+    this.cleanTable();
+    this.isLoading = true;
+
     this.vehicleService
       .getVehicle(this.inputForm.value)
       .subscribe(
@@ -54,12 +41,24 @@ export class ConsultaComponent implements OnInit {
           const { msg, plate, chassis, brand, model, color, yearManufactur, yearModel } = success.data as Vehicle;
           this.vehicle = new Vehicle(msg, plate, chassis, brand, model, color, yearManufactur, yearModel);
           this.tableData.push(this.vehicle);
+          this.isLoading = false;
         },
 
         error => {
-          console.log(error.error.feedbacks[0].msg);
+          this.isLoading = false;
+          this.dialog.open(DialogComponent, {
+            data: {
+              type: 'error',
+              msg: error.error.feedbacks[0].msg,
+              payload: {}
+            }
+          });
         }
     );
+  }
+
+  cleanTable() {
+    this.tableData = [];
   }
 
 }

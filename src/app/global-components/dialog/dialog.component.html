@@ -1,0 +1,27 @@
+<div [ngSwitch] = "data.type" style="width: 300px;">
+    <div *ngSwitchCase = "'error'">
+        <div fxLayout fxLayoutAlign = "start center" fxLayoutGap = "10px">
+            <div>
+                <mat-icon color = "warn">warning</mat-icon>
+            </div>
+            <div><strong>Atenção</strong></div>
+        </div>
+        <div>
+            <div>{{ data.msg }}</div>
+        </div>
+
+        <div fxLayoutAlign = "end" style = "margin-top: 20px">
+            <div>
+                <button mat-button mat-dialog-close color = "warn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase = "'success'">
+        
+    </div>
+
+    <div *ngSwitchDefault>
+        
+    </div>
+</div>

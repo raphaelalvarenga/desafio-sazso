@@ -13,14 +13,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
+
 
 
 import { ConsultaComponent } from './consulta/consulta.component';
+import { DialogComponent } from './global-components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,10 @@ import { ConsultaComponent } from './consulta/consulta.component';
     MatDividerModule,
     MatTableModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
