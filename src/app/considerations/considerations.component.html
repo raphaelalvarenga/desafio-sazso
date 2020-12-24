@@ -1,8 +1,18 @@
-<mat-card>
+<mat-card style = "width: 100%; max-width: 1200px; margin: auto; margin-bottom: 50px;">
+    <mat-card-content>
+        <h2>Escolha seu Idioma / Choose your Language</h2>
+        <mat-radio-group [(ngModel)] = "language">
+            <mat-radio-button value = "pt">Português</mat-radio-button>
+            <mat-radio-button value = "eng">English</mat-radio-button>
+        </mat-radio-group>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class = "mat-cards-distance" *ngFor = "let consideration of getConsiderations()">
     <mat-card-header>
-        <mat-card-title>Teste</mat-card-title>
+        <mat-card-title>{{ consideration.title }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <p>Content</p>
+        <p style = "padding: 0 16px;">{{ consideration.content }}</p>
     </mat-card-content>
 </mat-card>

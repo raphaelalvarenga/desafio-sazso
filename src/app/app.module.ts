@@ -19,6 +19,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 import { ConsultaComponent } from './consulta/consulta.component';
@@ -55,7 +57,8 @@ import { ConsiderationsComponent } from './considerations/considerations.compone
     MatProgressSpinnerModule,
     AppRoutingModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule
   ],
   providers: [AuthGuard, LoginService],
   bootstrap: [AppComponent]
