@@ -1,5 +1,19 @@
-<div class = "div-table" *ngIf = "listConsultDisplay.length > 0 && !noRequests; else noRequestTemplate">
+<div class = "div-table" *ngIf = "listConsult.length > 0 && !noRequests; else noRequestTemplate">
     <h2>Total of Requests: {{ count }}</h2>
+    
+    <mat-card>
+        <mat-card-content>
+            <div fxLayout>
+                <div>
+                    <mat-form-field style = "width: 300px;">
+                        <mat-label>Filter by plate</mat-label>
+                        <input matInput type="text" [(ngModel)] = "filter" (ngModelChange) = "filtering()">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
     <div fxLayout>
         <div fxFlex = "10%" class = "div-table-lines"><strong>ID</strong></div>
         <div fxFlex = "20%" class = "div-table-lines"><strong>Plate</strong></div>

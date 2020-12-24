@@ -16,6 +16,7 @@ export class ListConsultComponent implements OnInit {
   isLoading = false;
   count: number;
   noRequests = false;
+  filter: string;
 
   constructor(private vehicleService: VehicleService, private dialog: MatDialog) { }
 
@@ -61,6 +62,14 @@ export class ListConsultComponent implements OnInit {
           });
         }
       );
+  }
+
+  filtering() {
+    if (this.listConsultDisplay.length === 0) {
+      this.listConsultDisplay = this.listConsult;
+    } else {
+      this.listConsultDisplay = this.listConsult.filter(item => item.plate.includes(this.filter));
+    }
   }
 
 }
