@@ -13,6 +13,6 @@
         <mat-card-title>{{ consideration.title }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <p style = "padding: 0 16px;">{{ consideration.content }}</p>
+        <p style = "padding: 0 16px;" [innerHTML] = "consideration.content"></p>
     </mat-card-content>
 </mat-card>
