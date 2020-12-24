@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,15 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'desafio-sazso';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   getUrl() {
     const url = this.router.url;
 
     return url === '/login' ? false : true;
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 }

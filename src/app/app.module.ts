@@ -25,6 +25,8 @@ import { ConsultaComponent } from './consulta/consulta.component';
 import { DialogComponent } from './global-components/dialog/dialog.component';
 import { ListConsultComponent } from './list-consult/list-consult.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guard/auth.guard';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [AuthGuard, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
