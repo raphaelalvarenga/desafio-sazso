@@ -79,6 +79,8 @@ export class ListConsultComponent implements OnInit {
 
   // Any time user inserts text in filter field, this method will be triggered
   filtering() {
+    this.filter = this.filter.toUpperCase();
+
     if (this.listConsultDisplay.length === 0) {
       this.listConsultDisplay = this.listConsult;
     } else {
