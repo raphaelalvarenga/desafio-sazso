@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Response } from '@app/classes';
+import { Constants } from '@app/enums/enums';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  api = 'https://api.treinamento.carzen.com.br/';
+  api = Constants.api;
   headers: { Authorization: string };
 
   constructor(private http: HttpClient) {
