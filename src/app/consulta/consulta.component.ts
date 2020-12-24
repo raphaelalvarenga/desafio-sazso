@@ -74,6 +74,7 @@ export class ConsultaComponent implements OnInit {
 
   cleanInput() {
     this.inputForm.setValue('');
+    this.cleanTable();
   }
 
 }

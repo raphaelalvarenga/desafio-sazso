@@ -37,13 +37,13 @@ export class ListConsultComponent implements OnInit {
               return false;
             }
           }
-          
+
           this.listConsult = success.data.list as List[];
 
           this.listConsult = this.listConsult.map(item => {
-            return new List(item.id, item.plate, new Date(item.date).toLocaleDateString(), item.user)
+            return new List(item.id, item.plate, new Date(item.date).toLocaleDateString(), item.user);
           });
-          
+
           this.listConsultDisplay = this.listConsult;
           this.count = success.data.count as number;
           this.isLoading = false;
@@ -60,7 +60,7 @@ export class ListConsultComponent implements OnInit {
             }
           });
         }
-      )
+      );
   }
 
 }

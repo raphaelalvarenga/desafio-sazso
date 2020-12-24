@@ -28,5 +28,5 @@
 </div>
 
 <ng-template #noRequestTemplate>
-    <h2>No requests found. Please try requesting a vehicle in this page.</h2>
+    <h2 *ngIf = "noRequests">No requests found. Please try requesting a vehicle in this page.</h2>
 </ng-template>
