@@ -1,4 +1,4 @@
-<div style = "width: 100%; max-width: 1200px; margin: auto;" *ngIf = "listConsult.length > 0">
+<div style = "width: 100%; max-width: 1200px; margin: auto;" *ngIf = "listConsultDisplay.length > 0 && !noRequests; else noRequestTemplate">
     <h2>Total of Requests: {{ count }}</h2>
     <div fxLayout>
         <div fxFlex = "10%" class = "div-table-lines"><strong>ID</strong></div>
@@ -10,7 +10,7 @@
 
     <div
         fxLayout
-        *ngFor = "let item of listConsult; let i = index"
+        *ngFor = "let item of listConsultDisplay; let i = index"
         [ngClass] = "{'div-table-zebra': i % 2 !== 0}"
     >
         <div fxFlex = "10%" class = "div-table-lines">{{ item.id }}</div>
@@ -26,3 +26,7 @@
         <mat-spinner></mat-spinner>
     </div>
 </div>
+
+<ng-template #noRequestTemplate>
+    <h2>No requests found. Please try requesting a vehicle in this page.</h2>
+</ng-template>

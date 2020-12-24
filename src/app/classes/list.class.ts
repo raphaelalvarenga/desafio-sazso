@@ -3,8 +3,15 @@ import { User } from "./user.class"
 export class List {
     private _id: number;
     private _plate: string;
-    private _date: number;
+    private _date: string;
     private _user: User;
+
+    constructor(id: number, plate: string, date: string, user: User) {
+        this._id = id;
+        this._plate = plate;
+        this._date = date;
+        this._user = user;
+    }
 
     get id() {
         return this._id;
@@ -26,7 +33,7 @@ export class List {
         return this._date;
     }
 
-    set date(date: number) {
+    set date(date: string) {
         this._date = date;
     }
 
