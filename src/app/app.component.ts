@@ -12,12 +12,14 @@ export class AppComponent {
 
   constructor(private router: Router, private loginService: LoginService) { }
 
+  // These method was initially created to show or not show the toolbar based on the screen page
   getUrl() {
     const url = this.router.url;
 
     return url === '/login' ? false : true;
   }
 
+  // This method will be triggered whenever user clicks in logout
   logout() {
     this.loginService.logout();
   }

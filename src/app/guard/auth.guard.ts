@@ -13,6 +13,8 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const token = localStorage.getItem('desafio-raphael-token');
+
+      // Check if the token is set in localStorage
       return token === null ? this.router.navigate(['/login']) : true;
   }
 
