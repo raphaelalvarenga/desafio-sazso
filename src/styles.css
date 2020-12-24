@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(220, 225, 255); }
 
 .div-mat-divider {
     width: 80%;
@@ -15,9 +15,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .div-table-zebra {
-    background-color: rgba(63, 81, 181, 0.4);
+    background-color: rgba(255, 187, 77, 0.4);
 }
 
-/* .custom-dialog-container .mat-dialog-container {
-    padding: 0;
-} */
+mat-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mat-cards-distance {
+    margin-bottom: 50px;
+}

@@ -1,7 +1,7 @@
 <div class = "div-table" *ngIf = "listConsult.length > 0 && !noRequests; else noRequestTemplate">
     <h2>Total of Requests: {{ count }}</h2>
     
-    <mat-card>
+    <mat-card class = "mat-cards-distance">
         <mat-card-content>
             <div fxLayout>
                 <div>
@@ -14,25 +14,29 @@
         </mat-card-content>
     </mat-card>
 
-    <div fxLayout>
-        <div fxFlex = "10%" class = "div-table-lines"><strong>ID</strong></div>
-        <div fxFlex = "20%" class = "div-table-lines"><strong>Plate</strong></div>
-        <div fxFlex = "20%" class = "div-table-lines"><strong>Date</strong></div>
-        <div fxFlex = "20%" class = "div-table-lines"><strong>User</strong></div>
-        <div fxFlex = "30%" class = "div-table-lines"><strong>E-mail</strong></div>
-    </div>
-
-    <div
-        fxLayout
-        *ngFor = "let item of listConsultDisplay; let i = index"
-        [ngClass] = "{'div-table-zebra': i % 2 !== 0}"
-    >
-        <div fxFlex = "10%" class = "div-table-lines">{{ item.id }}</div>
-        <div fxFlex = "20%" class = "div-table-lines">{{ item.plate }}</div>
-        <div fxFlex = "20%" class = "div-table-lines">{{ item.date }}</div>
-        <div fxFlex = "20%" class = "div-table-lines">{{ item.user.name }}</div>
-        <div fxFlex = "30%" class = "div-table-lines">{{ item.user.email }}</div>
-    </div>
+    <mat-card>
+        <mat-card-content>
+            <div fxLayout>
+                <div fxFlex = "10%" class = "div-table-lines"><strong>ID</strong></div>
+                <div fxFlex = "20%" class = "div-table-lines"><strong>Plate</strong></div>
+                <div fxFlex = "20%" class = "div-table-lines"><strong>Date</strong></div>
+                <div fxFlex = "20%" class = "div-table-lines"><strong>User</strong></div>
+                <div fxFlex = "30%" class = "div-table-lines"><strong>E-mail</strong></div>
+            </div>
+        
+            <div
+                fxLayout
+                *ngFor = "let item of listConsultDisplay; let i = index"
+                [ngClass] = "{'div-table-zebra': i % 2 !== 0}"
+            >
+                <div fxFlex = "10%" class = "div-table-lines">{{ item.id }}</div>
+                <div fxFlex = "20%" class = "div-table-lines">{{ item.plate }}</div>
+                <div fxFlex = "20%" class = "div-table-lines">{{ item.date }}</div>
+                <div fxFlex = "20%" class = "div-table-lines">{{ item.user.name }}</div>
+                <div fxFlex = "30%" class = "div-table-lines">{{ item.user.email }}</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
 </div>
 
 <div fxLayoutAlign = "center center" *ngIf = "isLoading">

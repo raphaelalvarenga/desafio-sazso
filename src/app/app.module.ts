@@ -27,6 +27,7 @@ import { ListConsultComponent } from './list-consult/list-consult.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginService } from './services/login.service';
+import { ConsiderationsComponent } from './considerations/considerations.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginService } from './services/login.service';
     ConsultaComponent,
     DialogComponent,
     ListConsultComponent,
-    LoginComponent
+    LoginComponent,
+    ConsiderationsComponent
   ],
   imports: [
     BrowserModule,

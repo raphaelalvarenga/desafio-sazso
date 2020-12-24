@@ -1,87 +1,95 @@
-<div class = "div-input">
-    <form>
-        <div fxLayoutAlign = "center">
-            <mat-form-field class="mat-form-field">
-                <mat-label>Insert a plate sequence</mat-label>
-                <input matInput type="text" [formControl] = "inputForm" (keyup) = "cleanTable()">
-            </mat-form-field>
+<mat-card>
+    <mat-card-content>
+        <div class = "div-input">
+            <form>
+                <div fxLayoutAlign = "center">
+                    <mat-form-field class="mat-form-field">
+                        <mat-label>Insert a plate sequence</mat-label>
+                        <input matInput type="text" [formControl] = "inputForm" (keyup) = "cleanTable()">
+                    </mat-form-field>
+                </div>
+        
+                <div fxLayout fxLayoutAlign = "center" fxLayoutGap = "20px">
+                    <div>
+                        <button mat-raised-button color = "primary" (click) = "getVehicle()">Search</button>
+                    </div>
+        
+                    <div>
+                        <button type="button" mat-button color = "warn" (click) = "cleanInput()">Clear</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <div fxLayout fxLayoutAlign = "center" fxLayoutGap = "20px">
-            <div>
-                <button mat-raised-button color = "primary" (click) = "getVehicle()">Search</button>
-            </div>
-
-            <div>
-                <button type="button" mat-button color = "warn" (click) = "cleanInput()">Clear</button>
-            </div>
-        </div>
-    </form>
-</div>
+    </mat-card-content>
+</mat-card>
 
 <div class = "div-mat-divider" *ngIf = "tableData.length > 0">
     <mat-divider></mat-divider>
 </div>
 
-<div *ngIf = "screenWidth > 900 && tableData.length > 0; else listData">
-    <div fxLayout>
-        <div fxFlex class = "div-table-lines"><strong>Plate</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Brand</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Model</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Color</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Chassis</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Year of Manufacturing</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Year of Model</strong></div>
-        <div fxFlex class = "div-table-lines"><strong>Msg</strong></div>
-    </div>
-
-    <div fxLayout *ngFor = "let vehicle of tableData">
-        <div fxFlex class = "div-table-lines">{{ vehicle.plate }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.brand }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.model }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.color }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.chassis }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.yearManufactur }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.yearModel }}</div>
-        <div fxFlex class = "div-table-lines">{{ vehicle.msg }}</div>
-    </div>
-</div>
-
-<ng-template #listData>
-    <mat-list role = "list" *ngFor = "let vehicle of tableData">
-        <mat-list-item role = "listitem">
-            <strong>Plate:</strong> &nbsp; {{ vehicle.plate }}
-        </mat-list-item>
+<mat-card *ngIf = "screenWidth > 900 && tableData.length > 0">
+    <mat-card-content>
+        <div *ngIf = "screenWidth > 900 && tableData.length > 0; else listData">
+            <div fxLayout>
+                <div fxFlex class = "div-table-lines"><strong>Plate</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Brand</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Model</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Color</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Chassis</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Year of Manufacturing</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Year of Model</strong></div>
+                <div fxFlex class = "div-table-lines"><strong>Msg</strong></div>
+            </div>
         
-        <mat-list-item role = "listitem">
-            <strong>Brand:</strong> &nbsp; {{ vehicle.brand }}
-        </mat-list-item>
+            <div fxLayout *ngFor = "let vehicle of tableData">
+                <div fxFlex class = "div-table-lines">{{ vehicle.plate }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.brand }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.model }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.color }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.chassis }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.yearManufactur }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.yearModel }}</div>
+                <div fxFlex class = "div-table-lines">{{ vehicle.msg }}</div>
+            </div>
+        </div>
         
-        <mat-list-item role = "listitem">
-            <strong>Model:</strong> &nbsp; {{ vehicle.model }}
-        </mat-list-item>
-        
-        <mat-list-item role = "listitem">
-            <strong>Color:</strong> &nbsp; {{ vehicle.color }}
-        </mat-list-item>
-        
-        <mat-list-item role = "listitem">
-            <strong>Chassis:</strong> &nbsp; {{ vehicle.chassis }}
-        </mat-list-item>
-        
-        <mat-list-item role = "listitem">
-            <strong>Year of Manufacturing:</strong> &nbsp; {{ vehicle.yearManufactur }}
-        </mat-list-item>
-        
-        <mat-list-item role = "listitem">
-            <strong>Year of Model:</strong> &nbsp; {{ vehicle.yearModel }}
-        </mat-list-item>
-        
-        <mat-list-item role = "listitem">
-            <strong>Msg:</strong> &nbsp; {{ vehicle.msg }}
-        </mat-list-item>
-    </mat-list>
-</ng-template>
+        <ng-template #listData>
+            <mat-list role = "list" *ngFor = "let vehicle of tableData">
+                <mat-list-item role = "listitem">
+                    <strong>Plate:</strong> &nbsp; {{ vehicle.plate }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Brand:</strong> &nbsp; {{ vehicle.brand }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Model:</strong> &nbsp; {{ vehicle.model }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Color:</strong> &nbsp; {{ vehicle.color }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Chassis:</strong> &nbsp; {{ vehicle.chassis }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Year of Manufacturing:</strong> &nbsp; {{ vehicle.yearManufactur }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Year of Model:</strong> &nbsp; {{ vehicle.yearModel }}
+                </mat-list-item>
+                
+                <mat-list-item role = "listitem">
+                    <strong>Msg:</strong> &nbsp; {{ vehicle.msg }}
+                </mat-list-item>
+            </mat-list>
+        </ng-template>
+    </mat-card-content>
+</mat-card>
 
 <div fxLayoutAlign = "center center" *ngIf = "isLoading">
     <div>
