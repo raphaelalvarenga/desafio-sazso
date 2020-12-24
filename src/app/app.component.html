@@ -1,2 +1,24 @@
-<!-- <app-consulta></app-consulta> -->
-<app-list-consult></app-list-consult>
+<mat-toolbar color = "primary" style = "margin-bottom: 50px;">
+    <div fxLayout fxLayoutAlign = "space-between center" style = "width: 100%;">
+        <div fxLayout fxLayoutGap = "40px">
+            <div style = "font-size: 25px;">
+                <a routerLink = "/" routerLinkActive = "active" style = "text-decoration: none; color: white">SAZSO</a>
+            </div>
+            <div fxLayout fxLayoutGap = 20px>
+                <div>
+                    <a routerLink = "/" routerLinkActive = "active" style = "text-decoration: none; color: white">Find</a>
+                </div>
+                <div>
+                    <a routerLink = "/list-consult" routerLinkActive = "active" style = "text-decoration: none; color: white">Requests</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a routerLink = "/login" routerLinkActive = "active" style = "text-decoration: none; color: white">
+                <mat-icon>power_settings_new</mat-icon>
+            </a>
+        </div>
+    </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
