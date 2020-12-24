@@ -40,6 +40,14 @@ export class ConsultaComponent implements OnInit {
       .getVehicle(this.inputForm.value)
       .subscribe(
         success => {
+
+          if (success.feedbacks.length > 0) {
+            if (success.feedbacks[0].code === 'FORBIDDEN') {
+              // Direcionar para a tela de login
+              return false;
+            }
+          }
+          
           const { msg, plate, chassis, brand, model, color, yearManufactur, yearModel } = success.data as Vehicle;
           this.vehicle = new Vehicle(msg === null ? '-' : msg, plate, chassis, brand, model, color, yearManufactur, yearModel);
           this.tableData.push(this.vehicle);
