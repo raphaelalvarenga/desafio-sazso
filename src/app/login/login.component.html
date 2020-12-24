@@ -14,7 +14,7 @@
                         <input matInput type="password" formControlName = "password">
                     </mat-form-field>
 
-                    <button mat-raised-button color = "primary">Login</button>
+                    <button mat-raised-button color = "primary" [disabled] = "formLogin.status !== 'VALID'">Login</button>
                 </form>
             </mat-card-content>
         </mat-card>

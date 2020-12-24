@@ -11,7 +11,7 @@ import { LoginService } from '@app/services/login.service';
 export class LoginComponent implements OnInit {
 
   formLogin = this.fb.group({
-    email: ['raphael.treinamento@sazso.com.br', Validators.required],
+    email: ['raphael.treinamento@sazso.com.br', [Validators.required, Validators.email]],
     password: ['raphael123456', Validators.required]
   });
 
@@ -30,14 +30,14 @@ export class LoginComponent implements OnInit {
         .subscribe(
           success => {
             if (success.feedbacks.length === 0) {
-              
+
             }
           },
 
           error => {
             console.log(error);
           }
-        )
+        );
     }
   }
 
