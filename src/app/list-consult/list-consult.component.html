@@ -1,0 +1,28 @@
+<div style = "width: 100%; max-width: 1200px; margin: auto;" *ngIf = "listConsult.length > 0">
+    <h2>Total of Requests: {{ count }}</h2>
+    <div fxLayout>
+        <div fxFlex = "10%" class = "div-table-lines"><strong>ID</strong></div>
+        <div fxFlex = "20%" class = "div-table-lines"><strong>Plate</strong></div>
+        <div fxFlex = "20%" class = "div-table-lines"><strong>Date</strong></div>
+        <div fxFlex = "20%" class = "div-table-lines"><strong>User</strong></div>
+        <div fxFlex = "30%" class = "div-table-lines"><strong>E-mail</strong></div>
+    </div>
+
+    <div
+        fxLayout
+        *ngFor = "let item of listConsult; let i = index"
+        [ngClass] = "{'div-table-zebra': i % 2 !== 0}"
+    >
+        <div fxFlex = "10%" class = "div-table-lines">{{ item.id }}</div>
+        <div fxFlex = "20%" class = "div-table-lines">{{ item.plate }}</div>
+        <div fxFlex = "20%" class = "div-table-lines">{{ item.date }}</div>
+        <div fxFlex = "20%" class = "div-table-lines">{{ item.user.name }}</div>
+        <div fxFlex = "30%" class = "div-table-lines">{{ item.user.email }}</div>
+    </div>
+</div>
+
+<div fxLayoutAlign = "center center" *ngIf = "isLoading">
+    <div>
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

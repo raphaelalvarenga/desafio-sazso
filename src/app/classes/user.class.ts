@@ -3,6 +3,12 @@ export class User {
     private _email: string;
     private _name: string;
 
+    constructor(id: number, email: string, name: string) {
+        this._id = id;
+        this._email = email;
+        this._name = name;
+    }
+
     get id() {
         return this._id;
     }

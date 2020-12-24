@@ -9,6 +9,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-bottom: 50px;
 }
 
+.div-table-lines {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.div-table-zebra {
+    background-color: rgba(63, 81, 181, 0.4);
+}
+
 /* .custom-dialog-container .mat-dialog-container {
     padding: 0;
 } */

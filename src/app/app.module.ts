@@ -23,12 +23,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { ConsultaComponent } from './consulta/consulta.component';
 import { DialogComponent } from './global-components/dialog/dialog.component';
+import { ListConsultComponent } from './list-consult/list-consult.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultaComponent,
-    DialogComponent
+    DialogComponent,
+    ListConsultComponent
   ],
   imports: [
     BrowserModule,
