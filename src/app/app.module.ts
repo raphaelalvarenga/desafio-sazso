@@ -20,8 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
-
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ConsultaComponent } from './consulta/consulta.component';
 import { DialogComponent } from './global-components/dialog/dialog.component';
@@ -58,7 +57,8 @@ import { ConsiderationsComponent } from './considerations/considerations.compone
     AppRoutingModule,
     MatToolbarModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard, LoginService],
   bootstrap: [AppComponent]
